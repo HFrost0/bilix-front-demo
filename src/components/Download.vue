@@ -13,7 +13,7 @@ onMounted(() => {
   if (Cookies.get('token') === undefined) {
     router.replace("/login")
   } else {
-    let ws = new WebSocket(`ws://localhost:8000/ws?token=${Cookies.get("token")}`);
+    let ws = new WebSocket(`ws://${Cookies.get('server')}/ws?token=${Cookies.get("token")}`);
     ws.onopen = event => connected.value = true
     ws.onclose = event => connected.value = false
     ws.onerror = event => connected.value = false
@@ -44,7 +44,7 @@ onMounted(() => {
 })
 
 function addTask() {
-  fetch('http://localhost:8000/add_task', {
+  fetch(`http://${Cookies.get('server')}/add_task`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

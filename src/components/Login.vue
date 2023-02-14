@@ -5,7 +5,7 @@ import {useRouter} from "vue-router";
 
 const router = useRouter()
 const formValue = ref({
-  server: 'localhost:8000',
+  server: '127.0.0.1:8000',
   username: 'sb',
   password: 'sbsbsb'
 })
@@ -24,6 +24,7 @@ function handleLogin() {
     })
   }).then(res => res.json()).then(responseData => {
     Cookies.set("token", responseData['access_token'])
+    Cookies.set("server", formValue.value.server)
     router.push('/')
   })
 }
