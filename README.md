@@ -1,23 +1,32 @@
 # bilix-front-demo
 
 A Web UI (demo) managing bilix download service.
+<img src="public/demo.png">
 
-## start bilix server
+## start bilix service
 
-* require `bilix[serve]`
+* install serve requirements
 
 ```shell
-uvicorn bilix.serve:app --reload
+pip install -r serve/requirements.txt
+```
+
+* start bilix server
+
+```shell
+uvicorn serve:app
 ```
 
 ## front dev
 
+* install requirements
+
 ```shell
 npm i
-vite
 ```
 
-## stack
+* start dev server
 
-* [Vue3](https://vuejs.org)
-* [Naive UI](https://www.naiveui.com/zh-CN/os-theme)
+```shell
+vite
+```

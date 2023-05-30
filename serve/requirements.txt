@@ -1,0 +1,7 @@
+fastapi>=0.92.0
+passlib[bcrypt]
+python-jose[cryptography]
+starlette
+uvicorn
+python-multipart
+bilix>=0.18.3

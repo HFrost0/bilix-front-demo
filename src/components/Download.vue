@@ -19,6 +19,7 @@ onMounted(() => {
     ws.onerror = event => connected.value = false
     ws.onmessage = event => {
       let data = JSON.parse(event.data)
+      console.log(data);
       if (data['method'] === "add_task") {
         tasks.value.push({
           task_id: data['task_id'],
@@ -51,6 +52,7 @@ function addTask() {
       'Authorization': `Bearer ${Cookies.get('token')}`
     },
     body: JSON.stringify({
+      // todo other site
       'site': "bilibili",
       'method': 'get_series',
       'key': url.value
